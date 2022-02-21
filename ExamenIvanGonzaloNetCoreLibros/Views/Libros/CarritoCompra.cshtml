@@ -1,0 +1,41 @@
+﻿@model List<Libros>
+
+@if (Model.Count == 0)
+{
+                <h1>@ViewBag.mensaje</h1>
+}
+else
+{
+    <a class="btn btn-info" asp-controller="Libros" asp-action="Checkout">Hacer pedido</a>
+    <br />
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th> Titulo </th>
+                <th> Autor </th>
+                <th> Editorial </th>
+                <th> Precio </th>
+                <th> Imagen </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Libros libro in Model)
+                {
+            <tr>
+                <td>@libro.Titulo</td>
+                <td>@libro.Autor</td>
+                <td>@libro.Editorial</td>
+                <td>@libro.Precio €</td>
+                <td>
+                   <img src="~/images/@libro.Portada" style="height: 80px; width: 80px;" /> 
+                </td>
+                <td>
+                    <a asp-controller="Libros" asp-action="CarritoCompra" asp-route-idlibro="@libro.IdLibro" class="btn btn-outline-danger">
+                        Eliminar del carrito
+                    </a>
+                </td>        
+            </tr>
+                }
+        </tbody>
+    </table>
+}

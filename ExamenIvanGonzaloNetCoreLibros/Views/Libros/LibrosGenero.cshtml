@@ -1,0 +1,33 @@
+﻿@model List<Libros>
+
+<div class="container">
+    <div class="row">
+
+        @if (Model.Count == 0)
+        {
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                No hay libros con este género
+            </div>
+        }
+        else
+        {
+
+            @foreach (Libros libro in Model)
+            {
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="~/images/@libro.Portada" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a asp-controller="Libros" asp-action="DetallesLibro" asp-route-idlibro="@libro.IdLibro">
+                                <h5 class="card-title">@libro.Titulo</h5>
+                            </a>
+                        </div> <!-- Body-->
+                    </div> <!-- Tarjeta-->
+                </div> <!-- Columnas-->
+
+            }
+
+        }
+
+    </div> <!-- Row-->
+</div> <!-- Container-->

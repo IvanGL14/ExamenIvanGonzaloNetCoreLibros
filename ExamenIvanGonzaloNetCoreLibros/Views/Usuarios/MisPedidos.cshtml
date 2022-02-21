@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ExamenIvanGonzaloNetCoreLibros.Models.VistaPedidos>
+
+@{
+    ViewData["Title"] = "MisPedidos";
+}
+
+<h1>Mis Pedidos</h1>
+
+@if (Model.Count() == 0)
+{
+    <h1>No tienes ningún pedido actualmente</h1>
+}
+
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellidos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>              
+                <th>
+                    @Html.DisplayNameFor(model => model.Portada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecioFinal)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </td>
+                    <td>
+                        <img src="~/images/@item.Portada" style="max-height: 50px; max-width: 50px;"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecioFinal)
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

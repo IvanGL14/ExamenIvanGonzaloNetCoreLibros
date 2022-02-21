@@ -1,0 +1,24 @@
+﻿@model Usuario
+
+@if (Model == null)
+{
+                <h1>No hay ningún usuario con este ID</h1>
+}
+else 
+{ 
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12">
+        <img src="~/images/@Model.Foto" style="max-height:250px; max-width:250px;" />
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-12">
+        <h1>Username : @Model.Nombre</h1>
+        <br />
+        <h2>Apellidos : @Model.Apellidos</h2>
+        <br />
+        <h2>Email: @Model.Email</h2>
+    </div>
+</div>
+
+    
+
+}

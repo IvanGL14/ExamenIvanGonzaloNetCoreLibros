@@ -1,0 +1,50 @@
+﻿@model ExamenIvanGonzaloNetCoreLibros.Models.Libros
+
+@{
+    ViewData["Title"] = "DetallesLibro";
+}
+
+@if (Model == null)
+{
+    <div>
+        <h1>No hay ningún libro con este ID</h1>
+    </div>
+}
+else
+{
+    <div>
+        <h4>Libros</h4>
+        <hr />
+        <dl class="row">
+            <dd class="col-sm-10">
+               TITULO:  @Html.DisplayFor(model => model.Titulo)
+            </dd>
+
+            <dd class="col-sm-10">
+              AUTOR: @Html.DisplayFor(model => model.Autor)
+            </dd>
+
+            <dd class="col-sm-10">
+               EDITORIAL: @Html.DisplayFor(model => model.Editorial)
+            </dd>
+
+            <dd class="col-sm-10">
+                <img src="~/images/@Model.Portada" style="max-height:200px; max-width: 200px;" />
+            </dd>
+            <dd class="col-sm-10">
+               PRECIO: @Html.DisplayFor(model => model.Precio) €
+            </dd>
+
+            <dd class="col-sm-10">
+               SINOPSIS: @Html.DisplayFor(model => model.Resumen)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-controller="Libros" asp-action="AddCarrito" asp-route-idlibro="@Model.IdLibro" class="btn btn-info">
+            Comprar
+        </a>
+    </div>
+
+}
+
